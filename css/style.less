@@ -122,7 +122,21 @@ button {
 	Helpers
  -------------------------------------------------------- */
 
+.hide {
+	display: none;
+}
+.text-center {
+	text-align: center;
+}
+.pull-right {
+	float: right;
+}
+.fade {
+	transition: all .2s;
+}
+
 .info-icon {
+	.fade();
 	display: inline-block;
 	position: absolute;
 	top: 20px;
@@ -136,16 +150,22 @@ button {
 	text-align: center;
 	background: rgba(0,0,0,0.15);
 	border-radius: 50%;
-	transition: all .2s;
 	&:hover {
 		cursor: pointer;
 		background: @color-blue;
 		text-decoration: none;
 	}
 }
-.hide {
-	display: none;
-}
-.text-center {
-	text-align: center;
+.customize {
+	.pull-right();
+	.fade();
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url(../img/settings.svg) no-repeat;
+	background-size: 16px;
+	opacity: .3;
+	&:hover {
+		opacity: .6;
+	}
 }

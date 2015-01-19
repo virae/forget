@@ -7,6 +7,7 @@ chrome.runtime.onMessage.addListener(
 
 		var action = request.action;
 		var since = parseTime(request.since);
+		var settings = request.settings;
 
 		// Clear browser data
 		if (action == 'clear') {
@@ -17,20 +18,7 @@ chrome.runtime.onMessage.addListener(
 					"protectedWeb": false, // preserve protectedWeb data
 					"extension": false // preserve extension data
 				}
-			},{
-				"appcache": false,
-				"cache": true,
-				"cookies": true,
-				"downloads": true,
-				"fileSystems": false,
-				"formData": false,
-				"history": true,
-				"indexedDB": false,
-				"localStorage": false,
-				"pluginData": false,
-				"passwords": false,
-				"webSQL": false
-			}, getLostInWoods);
+			}, settings, getLostInWoods);
 		}
 
 		// Init

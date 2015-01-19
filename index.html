@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 	<head>
 		<meta charset="utf-8">
 		<title>Forget - leave no trace!</title>
@@ -7,38 +7,40 @@
 		<link rel="shortcut icon" href="img/icon_48.png">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
-	<body>
+	<body ng-controller="forget">
 
-		<section id="section-default">
-			<a class="info-icon" data-toggle="#section-about">?</a>
+		<section ng-show="view == 'default'">
+			<a class="info-icon" ng-click="show('about')">?</a>
 			<header>
 				<h1>Forget the last</h1>
 				<label>
-					<input type="radio" value="five_minutes" name="since" checked> Five minutes
+					<input type="radio" value="five_minutes" ng-model="since"> Five minutes
 				</label>
 				<label>
-					<input type="radio" value="one_hour" name="since"> One hour
+					<input type="radio" value="one_hour" ng-model="since"> One hour
 				</label>
 				<label>
-					<input type="radio" value="one_day" name="since"> 24 hours
+					<input type="radio" value="one_day" ng-model="since"> 24 hours
 				</label>
 			</header>
 			<footer>
-				<p><small>This action will</small></p>
+				<p>
+					<a class="customize" ng-click="show('settings')"></a>
+					<small>This action will:</small>
+				</p>
 				<ul>
-					<li>Delete recent <strong>History</strong> and <strong>Cookies</strong></li>
-					<li>Clear list of recent <strong>Downloads</strong></li>
-					<li>Close all <strong>Tabs</strong> and <strong>Windows</strong></li>
+					<li ng-repeat="(key, value) in settings track by $index" ng-show="value" ng-cloak>Clear <strong>{{labels[key]}}</strong></li>
+ 					<li>Close all <strong>Tabs</strong> and <strong>Windows</strong></li>
 					<li>Open a new clean window</li>
 				</ul>
 				<p>
-					<button type="submit">Forget!</button>
+					<button type="submit" ng-click="forget()">Forget!</button>
 				</p>
 			</footer>
 		</section>
 
-		<section id="section-about" class="hide">
-			<a class="info-icon" data-toggle="#section-default">?</a>
+		<section ng-show="view == 'about'">
+			<a class="info-icon" ng-click="show('default')">?</a>
 			<header>
 				<h1>Forget and leave no trace!</h1>
 				<p class="text-center">
@@ -65,6 +67,20 @@
 			</footer>
 		</section>
 
+		<section ng-show="view == 'settings'">
+			<header>
+				<a ng-click="reset()" class="pull-right">reset</a>
+				<h1>Items to clear</h1>
+				<label ng-repeat="(key, item) in settings track by $index" ng-cloak>
+					<input type="checkbox" ng-model="settings[key]" /> {{labels[key]}}
+				</label>
+			</header>
+			<footer>
+				<button ng-click="save(); show('default')">Save</button>
+			</footer>
+		</section>
+
 	</body>
+	<script src="js/angular.min.js"></script>
 	<script src="js/app.js"></script>
 </html>
