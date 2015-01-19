@@ -1,0 +1,98 @@
+{
+   "app_name": {
+      "message": "Forget — clear history with one click"
+   },
+   "app_shortname": {
+      "message": "Forget"
+   },
+   "app_description": {
+      "message": "Protect your privacy and clear your browsing history with one simple click!"
+   },
+   "forget_last": {
+      "message": "Forget the last"
+   },
+   "forget": {
+      "message": "Forget!"
+   },
+   "save": {
+      "message": "Save"
+   },
+   "describe_action": {
+      "message": "This action will:"
+   },
+   "clear": {
+      "message": "Clear"
+   },
+   "reset": {
+      "message": "reset"
+   },
+   "items_to_clear": {
+      "message": "Items to clear"
+   },
+   "item_history": {
+      "message": "Browsing history"
+   },
+   "item_cookies": {
+      "message": "Cookies"
+   },
+   "item_cache": {
+      "message": "Browser cache"
+   },
+   "item_downloads": {
+      "message": "List of downloads"
+   },
+   "item_formData": {
+      "message": "Form data"
+   },
+   "item_passwords": {
+      "message": "Passwords"
+   },
+   "item_appcache": {
+      "message": "Application cache"
+   },
+   "item_localStorage": {
+      "message": "LocalStorage data"
+   },
+   "item_pluginData": {
+      "message": "Plugin data"
+   },
+   "item_fileSystems": {
+      "message": "Filesystems"
+   },
+   "item_indexedDB": {
+      "message": "IndexedDB Databases"
+   },
+   "item_webSQL": {
+      "message": "WebSQL Databases"
+   },
+   "time_five_minutes": {
+      "message": "Five minutes"
+   },
+   "time_one_hour": {
+      "message": "One hour"
+   },
+   "time_one_day": {
+      "message": "24 hours"
+   },
+   "clear_tabs": {
+      "message": "Close all <strong>Tabs</strong> and <strong>Windows</strong>"
+   },
+   "open_new_window": {
+      "message": "Open a new clean window"
+   },
+   "about_title": {
+      "message": "Forget and leave no trace!"
+   },
+   "about_paragraph_1": {
+      "message": "Take control over your privacy and browsing data. Browsers keep track of your online activity and websites you visit may gather cookies or collect personal information about you."
+   },
+   "about_paragraph_2": {
+      "message": "Protect your private data with <a data-href='https://chrome.google.com/webstore/detail/pcdnmhdaiehinndodginnphbakcoffoa'>Forget</a>"
+   },
+   "view_on_github": {
+      "message": "View source on Github"
+   },
+   "author": {
+      "message": "Author"
+   }
+}

@@ -2,83 +2,85 @@
 <html lang="en" ng-app="app">
 	<head>
 		<meta charset="utf-8">
-		<title>Forget - leave no trace!</title>
+		<title i18n="app_name"></title>
 		<meta name="author" content="Michal Šimonfy, http://virae.org">
 		<link rel="shortcut icon" href="img/icon_48.png">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body ng-controller="forget">
 
+		<!-- Default view -->
 		<section ng-show="view == 'default'">
 			<a class="info-icon" ng-click="show('about')">?</a>
 			<header>
-				<h1>Forget the last</h1>
+				<h1 i18n="forget_last"></h1>
 				<label>
-					<input type="radio" value="five_minutes" ng-model="since"> Five minutes
+					<input type="radio" value="five_minutes" ng-model="since"> <span i18n="time_five_minutes"></span>
 				</label>
 				<label>
-					<input type="radio" value="one_hour" ng-model="since"> One hour
+					<input type="radio" value="one_hour" ng-model="since"> <span i18n="time_one_hour"></span>
 				</label>
 				<label>
-					<input type="radio" value="one_day" ng-model="since"> 24 hours
+					<input type="radio" value="one_day" ng-model="since"> <span i18n="time_one_day"></span>
 				</label>
 			</header>
 			<footer>
 				<p>
 					<a class="customize" ng-click="show('settings')"></a>
-					<small>This action will:</small>
+					<small i18n="describe_action"></small>
 				</p>
 				<ul>
-					<li ng-repeat="(key, value) in settings track by $index" ng-show="value" ng-cloak>Clear <strong>{{labels[key]}}</strong></li>
- 					<li>Close all <strong>Tabs</strong> and <strong>Windows</strong></li>
-					<li>Open a new clean window</li>
+					<li ng-repeat="(key, value) in settings track by $index" ng-show="value" ng-cloak>
+						<span i18n="clear"></span> <strong>{{labels[key]}}</strong>
+					</li>
+ 					<li i18n="clear_tabs"></li>
+					<li i18n="open_new_window"></li>
 				</ul>
 				<p>
-					<button type="submit" ng-click="forget()">Forget!</button>
+					<button type="submit" ng-click="forget()" i18n="forget"></button>
 				</p>
 			</footer>
 		</section>
+		<!-- / Default view -->
 
+		<!-- About -->
 		<section ng-show="view == 'about'">
 			<a class="info-icon" ng-click="show('default')">?</a>
 			<header>
-				<h1>Forget and leave no trace!</h1>
+				<h1 i18n="about_title"></h1>
 				<p class="text-center">
 					<img src="img/get-lost-in-woods.png" width="168">
 				</p>
+				<p i18n="about_paragraph_1"></p>
+				<p i18n="about_paragraph_2"></p>
 				<p>
-					Take control over your privacy and browsing data. Browsers keep track of your online activity and websites you visit may gather cookies or collect personal information about you.
-				</p>
-				<p>
-					Protect your private data with <a data-href="https://chrome.google.com/webstore/detail/pcdnmhdaiehinndodginnphbakcoffoa">Forget</a>.
-				</p>
-				<p>
-					<img src="img/github.png" alt="" width="20" style="opacity: 0.7">&nbsp;
-					<a data-href="https://github.com/virae/forget" title="View source on Github">View source on Github</a>
+					<img src="img/github.png" width="20">
+					<a data-href="https://github.com/virae/forget" i18n="view_on_github"></a>
 				</p>
 			</header>
 			<footer>
 				<p>
-					<strong>Author</strong>:
-					<a data-href="http://virae.org/webdesign">Michal Šimonfy</a>
-					(<a data-href="http://twitter.com/virae">twitter</a>,
-					<a data-href="http://dribbble.com/virae">dribble</a>)
+					<strong i18n="author"></strong>:
+					<a data-href="http://virae.org/webdesign">Michal Šimonfy</a> (<a data-href="http://twitter.com/virae">twitter</a>, <a data-href="http://dribbble.com/virae">dribble</a>)
 				</p>
 			</footer>
 		</section>
+		<!-- / About -->
 
+		<!-- Settings -->
 		<section ng-show="view == 'settings'">
 			<header>
-				<a ng-click="reset()" class="pull-right">reset</a>
-				<h1>Items to clear</h1>
+				<a ng-click="reset()" class="pull-right" i18n="reset"></a>
+				<h1 i18n="items_to_clear"></h1>
 				<label ng-repeat="(key, item) in settings track by $index" ng-cloak>
 					<input type="checkbox" ng-model="settings[key]" /> {{labels[key]}}
 				</label>
 			</header>
 			<footer>
-				<button ng-click="save(); show('default')">Save</button>
+				<button ng-click="save(); show('default')" i18n="save"></button>
 			</footer>
 		</section>
+		<!-- / Settings -->
 
 	</body>
 	<script src="js/angular.min.js"></script>
