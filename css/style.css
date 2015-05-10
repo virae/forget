@@ -6,16 +6,115 @@
 /* --------------------------------------------------------
 	Layout
  -------------------------------------------------------- */
+
 * {
-  box-sizing: border-box;
-  -webkit-user-select: none;
+	box-sizing: border-box;
 }
 html {
+	padding: 0;
+	margin: 0;
 	height: 100%;
+	background: #F0F2F3;
+	color: #222;
+	font: 400 16px/24px "Source Sans Pro", sans-serif;
 }
 body {
-  background: url(../img/preview.png) center no-repeat #999aa4;
-  margin: 0 auto;
-  padding: 0;
-  height: 100%;
+	background: #F0F2F3;
+	margin: 0 auto;
+	padding: 40px 0;
+}
+header {
+	margin: 20px auto;
+	padding: 0 20px;
+}
+footer {
+	text-align: center;
+	color: #bbb;
+	font-size: 13px;
+}
+footer a {
+	color: #999;
+	text-decoration: none;
+}
+
+.container {
+	max-width: 1200px; 
+	margin: 20px auto;
+	padding: 0 40px;
+}
+
+@media (min-width: 980px) {
+	.one-third {
+		width: 33.33%;
+		float: left;
+		padding: 0 30px;
+	}
+	.two-thirds {
+		width: 66.66%;
+		float: left;
+		padding: 0 30px;
+	}
+}
+
+/* --------------------------------------------------------
+    Typo
+   -------------------------------------------------------- */
+
+h1 {
+	margin: 0 0 50px 0;
+	text-align: center;
+	font: 300 28px/38px "Source Sans Pro", sans-serif;
+}
+h1 strong {
+	color: #000000;
+	font-weight: 400;
+}
+p {
+	margin: 16px auto;
+	line-height: 1.5em;
+	text-align: left;
+}
+a {
+	color: #5080D8;
+}
+.lead {
+	font-weight: 100;
+	font-size: 20px;
+}
+
+
+/* --------------------------------------------------------
+    Buttons
+   -------------------------------------------------------- */
+
+.button {
+	padding: 14px 20px;
+	margin: 20px 0;
+	text-decoration: none;
+	font-size: 18px;
+	border-radius: 3px;
+	background: #5080D8;
+	color: #ffffff;
+}
+.button.button-block {
+	display: block;
+	text-align: center;
+}
+.button:hover {
+	background: #406AB8;
+}
+
+
+/* --------------------------------------------------------
+    Helpers
+   -------------------------------------------------------- */
+
+.clearfix {
+	clear: both;
+}
+.img-responsive {
+	max-width: 100%;
+}
+.text-center {
+	text-align: center;
 }
