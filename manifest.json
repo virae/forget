@@ -22,7 +22,7 @@
    "name": "__MSG_app_name__",
    "description": "__MSG_app_description__",
    "manifest_version": 3,
-   "minimum_chrome_version": "22",
+   "minimum_chrome_version": "88",
    "permissions": ["browsingData"],
    "short_name": "__MSG_app_shortname__",
    "update_url": "https://clients2.google.com/service/update2/crx",
