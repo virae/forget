@@ -8,23 +8,8 @@ end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
+indent_size = 2
 
-[*.html]
-indent_style = tab
-indent_size = 4
-
-[*.css]
-indent_style = tab
-indent_size = 4
-
-[*.less]
-indent_style = tab
-indent_size = 4
-
-[*.js]
-indent_style = tab
-indent_size = 4
-
-[*.coffee]
-indent_style = tab
-indent_size = 4
+[*.json]
+indent_style = space
+indent_size = 3
