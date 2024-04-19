@@ -1,6 +1,6 @@
 var timeout,
-	default_icon = 'img/icon@2x.png',
-	active_icon = 'img/icon_active@2x.png';
+	default_icon = '/img/icon@2x.png',
+	active_icon = '/img/icon_active@2x.png';
 
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
@@ -10,7 +10,7 @@ chrome.runtime.onMessage.addListener(
 		var settings = request.settings;
 
 		// Clear browser data
-		if (action == 'clear') {
+		if (action == 'clear' && since > 0) {
 			chrome.browsingData.remove({
 				"since": since,
 				"originTypes": {
@@ -47,7 +47,7 @@ function setIcon(icon, time) {
 			setIcon(icon);
 		}, time);
 	} else {
-		chrome.browserAction.setIcon({path: icon});
+		chrome.action.setIcon({path: icon});
 	}
 }
 
