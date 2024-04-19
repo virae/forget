@@ -1,88 +1,78 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
-	<head>
-		<meta charset="utf-8">
-		<title i18n="app_name"></title>
-		<meta name="author" content="Michal Šimonfy, http://virae.org">
-		<link rel="shortcut icon" href="img/icon_48.png">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
-	<body ng-controller="forget">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title i18n="app_name"></title>
+    <meta name="author" content="Michal Šimonfy, http://virae.org">
+    <link rel="shortcut icon" href="img/icon_48.png">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- Default view -->
+    <section id="default-view">
+      <a id="info-icon" class="info-icon">?</a>
+      <header>
+      <h1 i18n="forget_last"></h1>
+      <label>
+        <input type="radio" id="since-five-minutes" name="since" value="five_minutes"> <span i18n="time_five_minutes"></span>
+      </label>
+      <label>
+        <input type="radio" id="since-one-hour" name="since" value="one_hour"> <span i18n="time_one_hour"></span>
+      </label>
+      <label>
+        <input type="radio" id="since-one-day" name="since" value="one_day"> <span i18n="time_one_day"></span>
+      </label>
+      </header>
+      <footer>
+      <p>
+        <a id="customize-link" class="customize"></a>
+        <small i18n="describe_action"></small>
+      </p>
+      <ul id="items-list"></ul>
+      <p>
+        <button type="submit" id="forget-btn" i18n="forget"></button>
+      </p>
+      </footer>
+    </section>
+    <!-- / Default view -->
 
-		<!-- Default view -->
-		<section ng-show="view == 'default'">
-			<a class="info-icon" ng-click="show('about')">?</a>
-			<header>
-				<h1 i18n="forget_last"></h1>
-				<label>
-					<input type="radio" value="five_minutes" ng-model="since"> <span i18n="time_five_minutes"></span>
-				</label>
-				<label>
-					<input type="radio" value="one_hour" ng-model="since"> <span i18n="time_one_hour"></span>
-				</label>
-				<label>
-					<input type="radio" value="one_day" ng-model="since"> <span i18n="time_one_day"></span>
-				</label>
-			</header>
-			<footer>
-				<p>
-					<a class="customize" ng-click="show('settings')"></a>
-					<small i18n="describe_action"></small>
-				</p>
-				<ul>
-					<li ng-repeat="(key, value) in settings track by $index" ng-show="value" ng-cloak>
-						<span i18n="clear"></span> <strong>{{labels[key]}}</strong>
-					</li>
- 					<li i18n="clear_tabs"></li>
-					<li i18n="open_new_window"></li>
-				</ul>
-				<p>
-					<button type="submit" ng-click="forget()" i18n="forget"></button>
-				</p>
-			</footer>
-		</section>
-		<!-- / Default view -->
+    <!-- About -->
+    <section id="about-view">
+      <a id="back-icon" class="info-icon">?</a>
+      <header>
+      <h1 i18n="about_title"></h1>
+      <p class="text-center">
+        <img src="img/get-lost-in-woods.png" width="168">
+      </p>
+      <p i18n="about_paragraph_1"></p>
+      <p i18n="about_paragraph_2"></p>
+      <p>
+        <img src="img/github.png" width="20">
+        <a data-href="https://github.com/virae/forget" i18n="view_on_github"></a>
+      </p>
+      </header>
+      <footer>
+      <p>
+        <strong i18n="author"></strong>:
+        <a data-href="http://virae.org/webdesign">Michal Šimonfy</a> (<a data-href="http://twitter.com/virae">twitter</a>, <a data-href="http://dribbble.com/virae">dribble</a>)
+      </p>
+      </footer>
+    </section>
+    <!-- / About -->
 
-		<!-- About -->
-		<section ng-show="view == 'about'">
-			<a class="info-icon" ng-click="show('default')">?</a>
-			<header>
-				<h1 i18n="about_title"></h1>
-				<p class="text-center">
-					<img src="img/get-lost-in-woods.png" width="168">
-				</p>
-				<p i18n="about_paragraph_1"></p>
-				<p i18n="about_paragraph_2"></p>
-				<p>
-					<img src="img/github.png" width="20">
-					<a data-href="https://github.com/virae/forget" i18n="view_on_github"></a>
-				</p>
-			</header>
-			<footer>
-				<p>
-					<strong i18n="author"></strong>:
-					<a data-href="http://virae.org/webdesign">Michal Šimonfy</a> (<a data-href="http://twitter.com/virae">twitter</a>, <a data-href="http://dribbble.com/virae">dribble</a>)
-				</p>
-			</footer>
-		</section>
-		<!-- / About -->
+    <!-- Settings -->
+    <section id="settings-view">
+      <header>
+      <a id="reset-btn" class="pull-right" i18n="reset"></a>
+      <h1 i18n="items_to_clear"></h1>
+      <div id="settings-container"></div>
+      </header>
+      <footer>
+      <button id="save-btn" i18n="save"></button>
+      </footer>
+    </section>
+    <!-- / Settings -->
 
-		<!-- Settings -->
-		<section ng-show="view == 'settings'">
-			<header>
-				<a ng-click="reset()" class="pull-right" i18n="reset"></a>
-				<h1 i18n="items_to_clear"></h1>
-				<label ng-repeat="(key, item) in settings track by $index" ng-cloak>
-					<input type="checkbox" ng-model="settings[key]" /> {{labels[key]}}
-				</label>
-			</header>
-			<footer>
-				<button ng-click="save(); show('default')" i18n="save"></button>
-			</footer>
-		</section>
-		<!-- / Settings -->
-
-	</body>
-	<script src="js/angular.min.js"></script>
-	<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>
