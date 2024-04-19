@@ -92,6 +92,9 @@
    "view_on_github": {
       "message": "View source on Github"
    },
+   "buy_me_a_coffee": {
+      "message": "Buy me a coffee"
+   },
    "author": {
       "message": "Author"
    }
