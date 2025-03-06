@@ -4,3 +4,7 @@ Clear your browsing history and cache with one easy click! (Google Chrome Extens
 **[Read more](https://virae.github.io/forget/)** or install extension on **[Chrome Web Store](https://chrome.google.com/webstore/detail/pcdnmhdaiehinndodginnphbakcoffoa)**.
 
 !["One click history and cachce cleaner extension for Chrome"](http://virae.org/screenshots/yJaWOrwltMVS6JW7lFDTl4.png)
+
+Other projects
+------------
+[Ask AI](https://www.getvoila.ai/ask-ai) | [Formbeat](https://www.formbeat.com) | [Speed Dial 2](https://www.speeddial2.com)
